@@ -1,7 +1,6 @@
 package com.zuehlke.rating.omdb;
 
 import com.zuehlke.rating.Rating;
-import com.zuehlke.rating.omdb.OmdbAdapter;
 import org.junit.Test;
 
 import java.util.List;
@@ -11,6 +10,11 @@ import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
 public class OmdbAdapterIntegrationTest {
+
+    static {
+        System.setProperty("hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds", "5000");
+    }
+
     @Test
     public void getRatings() throws Exception {
         OmdbAdapter omdbAdapter = new OmdbAdapter("http://www.omdbapi.com/");
