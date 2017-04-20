@@ -20,7 +20,7 @@ public class RatingController {
 
     @GetMapping("/ratings/{id}")
     @ResponseBody
-    public List<Rating> getRatings(@PathVariable("id") long id) {
+    public List<Rating> getRatingsById(@PathVariable("id") long id) {
         return ratingService.getRatingsById(id);
     }
 }

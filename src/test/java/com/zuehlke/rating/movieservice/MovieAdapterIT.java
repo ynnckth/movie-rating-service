@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
 import static org.junit.Assert.assertThat;
 
-public class MovieAdapterIntegrationTest {
+public class MovieAdapterIT {
 
     static {
         System.setProperty("hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds", "5000");
@@ -22,6 +22,5 @@ public class MovieAdapterIntegrationTest {
 
         assertThat(movies, hasSize(7));
         assertThat(movies, hasItem(new Movie(1, "tt0372784")));
-
     }
 }
