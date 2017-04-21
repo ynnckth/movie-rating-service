@@ -28,7 +28,7 @@ public class RatingController {
 
     private void sleep() {
         try {
-            Thread.sleep(generateRandomNumber(1, 10) * 1000);
+            Thread.sleep(generateRandomNumber(3, 10) * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
