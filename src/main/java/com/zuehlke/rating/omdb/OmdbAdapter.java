@@ -7,7 +7,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class OmdbAdapter {
+public class OmdbAdapter implements RatingAdapter {
 
     private final OmdbApiClient omdbApiClient;
 
@@ -15,6 +15,7 @@ public class OmdbAdapter {
         omdbApiClient = RestClientFactory.createClient(url, OmdbApiClient.class);
     }
 
+    @Override
     public List<Rating> getRatings(String imdbId) {
         OmdbMovie omdbMovie = omdbApiClient.getMovieByImdbId(imdbId);
         List<OmdbRating> ratings = omdbMovie.getRatings();

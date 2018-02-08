@@ -1,7 +1,8 @@
 package com.zuehlke;
 
 import com.zuehlke.rating.movieservice.MovieAdapter;
-import com.zuehlke.rating.omdb.OmdbAdapter;
+import com.zuehlke.rating.omdb.InMemoryRatingAdapter;
+import com.zuehlke.rating.omdb.RatingAdapter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +21,7 @@ public class MovieRatingServiceApplication {
 	}
 
 	@Bean
-	public OmdbAdapter omdbAdapter(@Value("${endpoint.omdbapi}") String url) {
-		return new OmdbAdapter(url);
+	public RatingAdapter ratingAdapter(@Value("${endpoint.omdbapi}") String url) {
+		return new InMemoryRatingAdapter();
 	}
 }

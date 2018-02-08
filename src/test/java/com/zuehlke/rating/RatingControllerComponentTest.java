@@ -2,7 +2,7 @@ package com.zuehlke.rating;
 
 import com.zuehlke.rating.movieservice.Movie;
 import com.zuehlke.rating.movieservice.MovieAdapter;
-import com.zuehlke.rating.omdb.OmdbAdapter;
+import com.zuehlke.rating.omdb.RatingAdapter;
 import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class RatingControllerComponentTest {
     private MovieAdapter movieAdapter;
 
     @MockBean
-    private OmdbAdapter omdbAdapter;
+    private RatingAdapter ratingAdapter;
 
     @LocalServerPort
     private int port;
@@ -37,7 +37,7 @@ public class RatingControllerComponentTest {
         Mockito.when(movieAdapter.getMovies()).thenReturn(singletonList(movie));
 
         Rating rating = new Rating("Internet Movie Database", "8.3/10");
-        Mockito.when(omdbAdapter.getRatings(any())).thenReturn(singletonList(rating));
+        Mockito.when(ratingAdapter.getRatings(any())).thenReturn(singletonList(rating));
 
         RestAssured.port = port;
     }
